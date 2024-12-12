@@ -1,0 +1,22 @@
+.header_navbar {
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  &_container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 13vw;
+    & li {
+      list-style-type: none;
+      & a {
+        color: #fff;
+        text-decoration: none;
+        font-family: Roboto;
+        font-size: 24px;
+        line-height: 24px;
+      }
+    }
+  }
+}

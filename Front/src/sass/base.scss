@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: Roboto;
+}
+
+html,
+body,
+#root,
+#root > div:first-child,
+.main,
+.sidebar,
+.content {
+  height: 100%;
+}
+
+#root > div:first-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  width: 100%;
+}
