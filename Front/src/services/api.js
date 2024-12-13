@@ -24,7 +24,6 @@ async function fetchUserActivity(userId) {
   const activityData = data.userActivity.find(
     (activity) => activity.userId === userId
   );
-  console.log("Fetched Activity Data:", activityData);
   return activityData;
 }
 
