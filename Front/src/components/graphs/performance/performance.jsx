@@ -6,26 +6,26 @@ import CardScore from "./cardScore/cardScore";
 import Activity from "../activity/activity";
 import { fetchUserMainData } from "../../../services/api";
 
-function Performance() {
-  const [userId, setUserId] = useState(null);
+function Performance({ userId }) {
+  const [actualUserId, setActualUserId] = useState(null);
 
   // Fetches the main data for a user with a specific ID and updates the state with the user's actual ID
   useEffect(() => {
     const getUserData = async () => {
-      const userData = await fetchUserMainData(12);
-      setUserId(userData.id);
+      const userData = await fetchUserMainData(Number(userId));
+      setActualUserId(userData.id);
     };
 
     getUserData();
-  }, []);
+  }, [userId]);
 
-  if (!userId) {
+  if (!actualUserId) {
     return <div>Veuillez patienter...</div>;
   }
 
   return (
     <section className="performance">
-      <Activity userId={userId} />
+      <Activity userId={Number(actualUserId)} />
       <div className="performance_cards">
         <CardDuration />
         <CardDetails />

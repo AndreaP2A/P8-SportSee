@@ -22,14 +22,14 @@ function AppRouter() {
         <Route path="/" element={<Navigate replace to="/home" />} />
         <Route path="/" element={<Layout />}>
           <Route path="/home" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/:userId" element={<Profile />} />
           <Route
             path="/settings"
-            element={<Navigate replace to="/profile" />}
+            element={<Navigate replace to="/profile/12" />}
           />
           <Route
             path="/community"
-            element={<Navigate replace to="/profile" />}
+            element={<Navigate replace to="/profile/12" />}
           />
           <Route path="*" element={<Error404 />} />
         </Route>

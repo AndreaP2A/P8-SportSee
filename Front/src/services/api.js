@@ -7,9 +7,17 @@ const mockDataUrl = "/src/data/mockData.JSON";
  * @returns {Promise<Object>} A promise that resolves to the user's main data object.
  */
 async function fetchUserMainData(userId) {
-  const response = await fetch(mockDataUrl);
-  const data = await response.json();
-  return data.userMainData.find((user) => user.id === userId);
+  try {
+    const response = await fetch(mockDataUrl);
+    const data = await response.json();
+    console.log("Fetched data:", data); // Log the fetched data
+    const userData = data.userMainData.find((user) => user.id === userId);
+    console.log("User data:", userData); // Log the user data
+    return userData;
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+    throw error;
+  }
 }
 
 /**
