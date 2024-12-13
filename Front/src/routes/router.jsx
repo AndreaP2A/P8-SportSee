@@ -6,8 +6,6 @@ import {
 } from "react-router-dom";
 import Home from "../pages/home/home.jsx";
 import Profile from "../pages/profile/profile.jsx";
-import Settings from "../pages/settings/settings.jsx";
-import Community from "../pages/community/community.jsx";
 import Error404 from "../pages/error404/error404.jsx";
 import Layout from "../layouts/layout.jsx";
 
@@ -25,8 +23,14 @@ function AppRouter() {
         <Route path="/" element={<Layout />}>
           <Route path="/home" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/community" element={<Community />} />
+          <Route
+            path="/settings"
+            element={<Navigate replace to="/profile" />}
+          />
+          <Route
+            path="/community"
+            element={<Navigate replace to="/profile" />}
+          />
           <Route path="*" element={<Error404 />} />
         </Route>
       </Routes>
