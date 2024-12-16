@@ -1,5 +1,6 @@
 import "./performance.scss";
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import CardDuration from "./cardDuration/cardDuration";
 import CardDetails from "./cardDetails/cardDetails";
 import CardScore from "./cardScore/cardScore";
@@ -34,5 +35,9 @@ function Performance({ userId }) {
     </section>
   );
 }
+
+Performance.propTypes = {
+  userId: PropTypes.number.isRequired,
+};
 
 export default Performance;

@@ -1,10 +1,11 @@
 import "./header.scss";
 import Navbar from "../../components/navbar/navbar.jsx";
+import logo from "../../assets/logo.png";
 
 function Header() {
   return (
     <header className="header">
-      <img className="header_logo" src="src/assets/logo.png" alt="." />
+      <img src={logo} className="header_logo" alt="SportSee Logo" />
       <Navbar />
     </header>
   );

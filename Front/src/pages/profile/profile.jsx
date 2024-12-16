@@ -23,7 +23,7 @@ function Profile() {
     <div className="profile">
       <HeroBanner firstName={firstName} />
       <div className="profile_stats">
-        <Performance userId={userId} />
+        <Performance userId={Number(userId)} />
         <FoodKPI />
       </div>
     </div>
