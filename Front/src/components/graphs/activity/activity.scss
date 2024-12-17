@@ -1,14 +1,19 @@
 .performance_activity {
-  height: 60%;
+  height: 55%;
   width: 100%;
   border: 3px solid greenyellow;
+  padding: 3% 1%;
 
   .recharts-responsive-container {
     width: 100%;
     height: 100%;
+    background-color: #fbfbfb;
+    border: 3px solid greenyellow;
+    padding: 1%;
     .recharts-wrapper {
       width: 100%;
       height: 100%;
+      margin: 0 -15px;
     }
   }
 }

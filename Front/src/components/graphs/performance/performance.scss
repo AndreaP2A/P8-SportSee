@@ -1,8 +1,9 @@
 .performance {
   border: 3px solid purple;
-  width: 70%;
+  width: 78%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   &_cards {
     height: 40%;
     border: 3px solid orangered;

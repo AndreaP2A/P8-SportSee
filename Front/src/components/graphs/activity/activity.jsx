@@ -70,7 +70,7 @@ function Activity({ userId }) {
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={formattedData}
-          margin={{ top: 50, right: 30, left: 20, bottom: 5 }}
+          margin={{ top: 50, right: 5, left: 0, bottom: 5 }}
         >
           <text
             x={100}
@@ -78,13 +78,20 @@ function Activity({ userId }) {
             fill="black"
             textAnchor="middle"
             dominantBaseline="central"
-            style={{ fontSize: 16, fontWeight: "500" }}
+            style={{ fontSize: 16, fontWeight: "600" }}
           >
             Activité quotidienne
           </text>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="day" />
-          <YAxis yAxisId="left" dataKey="kilogram" orientation="right" />
+          <CartesianGrid strokeDasharray="2 2" vertical={false} />
+          <XAxis dataKey="day" tickLine={false} stroke="#d3d3d3" />
+          <YAxis
+            yAxisId="left"
+            dataKey="kilogram"
+            orientation="right"
+            axisLine={false}
+            tickLine={false}
+            stroke="#d3d3d3"
+          />
           <YAxis
             yAxisId="right"
             dataKey="calories"
@@ -105,7 +112,7 @@ function Activity({ userId }) {
             fill="#282D30"
             name="Poids (kg)"
             radius={[10, 10, 0, 0]}
-            barSize={10}
+            barSize={7}
           />
           <Bar
             yAxisId="right"
@@ -113,7 +120,7 @@ function Activity({ userId }) {
             fill="#E60000"
             name="Calories brûlées (kcal)"
             radius={[10, 10, 0, 0]}
-            barSize={10}
+            barSize={7}
           />
         </BarChart>
       </ResponsiveContainer>

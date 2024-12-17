@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
   font-family: Roboto;
 }
 
@@ -10,10 +9,9 @@ html,
 body,
 #root,
 #root > div:first-child,
-.main,
 .sidebar,
 .content {
-  height: 100%;
+  min-height: 1024px;
 }
 
 #root > div:first-child {
@@ -25,6 +23,6 @@ body,
   width: 100%;
 
   .content {
-    padding: 65px 90px 80px 90px;
+    padding: 65px 90px 90px 90px;
   }
 }
