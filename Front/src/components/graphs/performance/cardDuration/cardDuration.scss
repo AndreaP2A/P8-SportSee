@@ -2,4 +2,19 @@
   height: 100%;
   width: 32%;
   border: 3px solid limegreen;
+  background-color: red;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+}
+
+.recharts-layer.recharts-line-dots {
+  display: none;
+}
+
+.recharts-wrapper {
+  .recharts-default-tooltip {
+    border: none;
+    background-color: white;
+    color: black;
+  }
 }
