@@ -30,7 +30,7 @@ function Performance({ userId }) {
       <div className="performance_cards">
         <CardDuration userId={Number(actualUserId)} />
         <CardDetails userId={Number(actualUserId)} />
-        <CardScore />
+        <CardScore userId={Number(actualUserId)} />
       </div>
     </section>
   );
