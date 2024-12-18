@@ -84,6 +84,16 @@ function CardDuration({ userId }) {
               />
             </linearGradient>
           </defs>
+          <text
+            x={120}
+            y={25}
+            fill="pink"
+            textAnchor="middle"
+            dominantBaseline="central"
+            style={{ fontSize: 16, fontWeight: "500" }}
+          >
+            Durée moyenne des sessions
+          </text>
           <XAxis
             dataKey="day"
             tickFormatter={(tick) => dayMap[tick]}

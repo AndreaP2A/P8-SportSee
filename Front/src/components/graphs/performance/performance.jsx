@@ -29,7 +29,7 @@ function Performance({ userId }) {
       <Activity userId={Number(actualUserId)} />
       <div className="performance_cards">
         <CardDuration userId={Number(actualUserId)} />
-        <CardDetails />
+        <CardDetails userId={Number(actualUserId)} />
         <CardScore />
       </div>
     </section>
