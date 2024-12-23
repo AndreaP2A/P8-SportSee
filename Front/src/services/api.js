@@ -1,4 +1,12 @@
-const mockDataUrl = "/src/data/mockData.JSON";
+import useMockData from "./config"; // toggle Mock/Backend
+import MockDataFormatter from "./mockService";
+import BackendDataFormatter from "./backEndService";
+
+const mockDataUrl = "/src/data/mockData.JSON"; // Mock Data
+const backendUrl = "http://localhost:8000"; // Backend
+
+const mockFormatter = new MockDataFormatter();
+const backendFormatter = new BackendDataFormatter();
 
 /**
  * Fetches the main data for a specific user by their ID.
@@ -8,12 +16,13 @@ const mockDataUrl = "/src/data/mockData.JSON";
  */
 async function fetchUserMainData(userId) {
   try {
-    const response = await fetch(mockDataUrl);
+    const response = await fetch(
+      useMockData ? mockDataUrl : `${backendUrl}/user/${userId}`
+    );
     const data = await response.json();
-    console.log("Fetched data:", data); // Log the fetched data
-    const userData = data.userMainData.find((user) => user.id === userId);
-    console.log("User data:", userData); // Log the user data
-    return userData;
+    return useMockData
+      ? mockFormatter.formatUserMainData(data, userId)
+      : backendFormatter.formatUserMainData(data);
   } catch (error) {
     console.error("Error fetching user data:", error);
     throw error;
@@ -27,12 +36,13 @@ async function fetchUserMainData(userId) {
  * @returns {Promise<Object>} A promise that resolves to the user's activity data.
  */
 async function fetchUserActivity(userId) {
-  const response = await fetch(mockDataUrl);
-  const data = await response.json();
-  const activityData = data.userActivity.find(
-    (activity) => activity.userId === userId
+  const response = await fetch(
+    useMockData ? mockDataUrl : `${backendUrl}/user/${userId}/activity`
   );
-  return activityData;
+  const data = await response.json();
+  return useMockData
+    ? mockFormatter.formatUserActivity(data, userId)
+    : backendFormatter.formatUserActivity(data);
 }
 
 /**
@@ -42,9 +52,13 @@ async function fetchUserActivity(userId) {
  * @returns {Promise<Object>} A promise that resolves to the user's average sessions data.
  */
 async function fetchUserAverageSessions(userId) {
-  const response = await fetch(mockDataUrl);
+  const response = await fetch(
+    useMockData ? mockDataUrl : `${backendUrl}/user/${userId}/average-sessions`
+  );
   const data = await response.json();
-  return data.userAverageSessions.find((session) => session.userId === userId);
+  return useMockData
+    ? mockFormatter.formatUserAverageSessions(data, userId)
+    : backendFormatter.formatUserAverageSessions(data);
 }
 
 /**
@@ -54,11 +68,13 @@ async function fetchUserAverageSessions(userId) {
  * @returns {Promise<Object>} A promise that resolves to the user's performance data.
  */
 async function fetchUserPerformance(userId) {
-  const response = await fetch(mockDataUrl);
-  const data = await response.json();
-  return data.userPerformance.find(
-    (performance) => performance.userId === userId
+  const response = await fetch(
+    useMockData ? mockDataUrl : `${backendUrl}/user/${userId}/performance`
   );
+  const data = await response.json();
+  return useMockData
+    ? mockFormatter.formatUserPerformance(data, userId)
+    : backendFormatter.formatUserPerformance(data);
 }
 
 export {

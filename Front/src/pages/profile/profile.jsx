@@ -1,6 +1,6 @@
 import "./profile.scss";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import HeroBanner from "../../components/heroBanner/heroBanner";
 import FoodKPI from "../../components/foodKPI/foodKPI";
 import Performance from "../../components/graphs/performance/performance";
@@ -12,18 +12,28 @@ import lipidIcon from "../../assets/icon_lipides.png";
 
 function Profile() {
   const { userId } = useParams();
+  const location = useLocation();
   const [firstName, setFirstName] = useState("");
   const [keyData, setKeyData] = useState({});
 
   useEffect(() => {
+    console.log("Profile userId:", userId);
+    if (userId && location.pathname.includes("/profile")) {
+      localStorage.setItem("lastUserId", userId);
+    }
     const getUserData = async () => {
-      const data = await fetchUserMainData(Number(userId));
-      setFirstName(data.userInfos.firstName);
-      setKeyData(data.keyData);
+      try {
+        const data = await fetchUserMainData(Number(userId));
+        console.log("Fetched user data:", data);
+        setFirstName(data.userInfos.firstName);
+        setKeyData(data.keyData);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
     };
 
     getUserData();
-  }, [userId]);
+  }, [userId, location]);
 
   if (
     !keyData.calorieCount ||
