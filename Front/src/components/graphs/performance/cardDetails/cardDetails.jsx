@@ -37,6 +37,7 @@ function CardDetails({ userId }) {
       const formattedData = data.data.map((item) => ({
         ...item,
         kind: kindMapFr[item.kind],
+        value: item.value * 1.6,
       }));
       formattedData.sort(
         (a, b) => desiredOrder.indexOf(a.kind) - desiredOrder.indexOf(b.kind)
@@ -53,16 +54,24 @@ function CardDetails({ userId }) {
         <RadarChart
           data={performanceData}
           margin={{ top: 10, right: 30, bottom: 10, left: 30 }}
+          outerRadius="70%"
         >
-          <PolarGrid stroke="white" />
-          <PolarAngleAxis dataKey="kind" stroke="white" />
+          <PolarGrid stroke="white" radialLines={false} gridType="polygon" />
+          <PolarAngleAxis
+            dataKey="kind"
+            stroke="white"
+            tickLine={false}
+            startAngle={90}
+            endAngle={-270}
+          />
 
           <Radar
             name="Performance"
             dataKey="value"
             stroke="red"
             fill="#ff0101"
-            fillOpacity={0.7}
+            fillOpacity={0.6}
+            domain={[0, 160]}
           />
         </RadarChart>
       </ResponsiveContainer>
