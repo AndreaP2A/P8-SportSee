@@ -1,6 +1,6 @@
 import "./profile.scss";
 import { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import HeroBanner from "../../components/heroBanner/heroBanner";
 import FoodKPI from "../../components/foodKPI/foodKPI";
 import Performance from "../../components/graphs/performance/performance";
@@ -13,6 +13,7 @@ import lipidIcon from "../../assets/icon_lipides.png";
 function Profile() {
   const { userId } = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [keyData, setKeyData] = useState({});
 
@@ -23,7 +24,7 @@ function Profile() {
     }
     const getUserData = async () => {
       try {
-        const data = await fetchUserMainData(Number(userId));
+        const data = await fetchUserMainData(Number(userId), navigate);
         console.log("Fetched user data:", data);
         setFirstName(data.userInfos.firstName);
         setKeyData(data.keyData);
@@ -33,7 +34,7 @@ function Profile() {
     };
 
     getUserData();
-  }, [userId, location]);
+  }, [userId, location, navigate]);
 
   if (
     !keyData.calorieCount ||
