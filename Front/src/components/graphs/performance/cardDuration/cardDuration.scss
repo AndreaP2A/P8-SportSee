@@ -17,3 +17,15 @@
     color: black;
   }
 }
+
+.recharts-rectangle.custom-cursor {
+  height: 100%;
+  overflow: visible;
+  z-index: 1;
+}
+
+.recharts-line,
+.recharts-text,
+.recharts-layer.recharts-cartesian-axis.recharts-xAxis.xAxis {
+  z-index: 2;
+}

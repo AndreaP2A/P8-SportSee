@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { fetchUserAverageSessions } from "../../../../services/api";
+import CustomCursor from "./customCursor.jsx";
 
 const dayMap = {
   1: "L",
@@ -85,6 +86,7 @@ function CardDuration({ userId }) {
             </linearGradient>
           </defs>
           <text
+            className="recharts-text"
             x={120}
             y={25}
             fill="pink"
@@ -102,7 +104,7 @@ function CardDuration({ userId }) {
             stroke="#d3d3d3"
           />
           <YAxis tick={false} axisLine={false} />
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={<CustomTooltip />} cursor={<CustomCursor />} />
           <Line
             type="monotone"
             dataKey="sessionLength"
