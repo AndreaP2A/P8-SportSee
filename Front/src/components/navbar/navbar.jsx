@@ -1,6 +1,12 @@
 import "./navbar.scss";
 import { NavLink } from "react-router-dom";
 
+/**
+ * Navbar component renders the navigation bar with links to different sections of the application.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered navigation bar component.
+ */
 function Navbar() {
   const userId = 12;
 
@@ -11,7 +17,7 @@ function Navbar() {
           <NavLink to="/home">Accueil</NavLink>
         </li>
         <li>
-          <NavLink to={`/profile/${userId}`}>Profil</NavLink>
+          <NavLink to={`/user/${userId}`}>Profil</NavLink>
         </li>
         <li>
           <NavLink to={`/settings`}>Réglages</NavLink>

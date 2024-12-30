@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
-import "./error404.scss";
+import "./error.scss";
 
-function Error404() {
+/**
+ * Error component that displays an error message.
+ *
+ * @returns {JSX.Element} The rendered error page.
+ */
+function Error() {
   return (
     <div className="error-page">
       <h1>Page introuvable</h1>
@@ -11,4 +16,4 @@ function Error404() {
   );
 }
 
-export default Error404;
+export default Error;

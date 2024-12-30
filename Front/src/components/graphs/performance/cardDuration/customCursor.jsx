@@ -2,6 +2,14 @@ import PropTypes from "prop-types";
 import { Rectangle } from "recharts";
 import { useEffect, useState } from "react";
 
+/**
+ * CustomCursor component renders a custom cursor for a chart.
+ *
+ * @param {Object} props - The component props.
+ * @param {Array} props.points - The points data for the cursor.
+ * @param {number} props.width - The width of the cursor.
+ * @returns {JSX.Element|null} The custom cursor element or null if no points are provided.
+ */
 const CustomCursor = ({ points, width }) => {
   const [height, setHeight] = useState(0);
 

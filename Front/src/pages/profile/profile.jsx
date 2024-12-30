@@ -1,52 +1,48 @@
 import "./profile.scss";
-import { useEffect, useState } from "react";
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import useFetchUserData from "../../hooks/useFetchUserData";
 import HeroBanner from "../../components/heroBanner/heroBanner";
 import FoodKPI from "../../components/foodKPI/foodKPI";
 import Performance from "../../components/graphs/performance/performance";
-import { fetchUserMainData } from "../../services/api";
 import calorieIcon from "../../assets/icon_calories.png";
 import proteinIcon from "../../assets/icon_proteines.png";
 import carbohydrateIcon from "../../assets/icon_glucides.png";
 import lipidIcon from "../../assets/icon_lipides.png";
 
+/**
+ * Profile component fetches and displays user data based on the userId from the URL.
+ * It shows a loading message while fetching data and handles errors.
+ * If the URL matches specific paths, it displays the raw user data.
+ * Otherwise, it displays the user's profile information including performance and food KPIs.
+ *
+ * @returns {JSX.Element} The rendered profile component.
+ */
 function Profile() {
   const { userId } = useParams();
-  const location = useLocation();
-  const navigate = useNavigate();
-  const [firstName, setFirstName] = useState("");
-  const [keyData, setKeyData] = useState({});
+  const { userData, error } = useFetchUserData(userId);
 
-  useEffect(() => {
-    if (userId && location.pathname.includes("/profile")) {
-      localStorage.setItem("lastUserId", userId);
-    }
-    const getUserData = async () => {
-      try {
-        const data = await fetchUserMainData(Number(userId), navigate);
-        setFirstName(data.userInfos.firstName);
-        setKeyData(data.keyData);
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-        navigate("/error404");
-      }
-    };
-
-    getUserData();
-  }, [userId, location, navigate]);
+  if (error) return <div>Error fetching user data</div>;
+  if (!userData) return <div>Veuillez patienter...</div>;
 
   if (
-    !keyData.calorieCount ||
-    !keyData.proteinCount ||
-    !keyData.carbohydrateCount ||
-    !keyData.lipidCount
+    location.pathname.includes(`/user/${userId}/activity`) ||
+    location.pathname.includes(`/user/${userId}/average-sessions`) ||
+    location.pathname.includes(`/user/${userId}/performance`)
   ) {
-    return <div>Veuillez patienter...</div>;
+    return (
+      <div>
+        <pre>{JSON.stringify(userData, null, 2)}</pre>
+      </div>
+    );
   }
+
+  const { userInfos, keyData } = userData;
+
+  if (!userInfos || !keyData) return <div>Invalid user data</div>;
 
   return (
     <div className="profile">
-      <HeroBanner firstName={firstName} />
+      <HeroBanner firstName={userInfos.firstName} />
       <div className="profile_stats">
         <Performance userId={Number(userId)} />
         <div className="profile_foodKPI">

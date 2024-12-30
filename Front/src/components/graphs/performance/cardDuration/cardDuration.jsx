@@ -22,6 +22,14 @@ const dayMap = {
   7: "D",
 };
 
+/**
+ * CardDuration component displays a line chart representing the average session duration of a user.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {number} props.userId - The ID of the user to fetch session data for
+ * @returns {JSX.Element} A line chart displaying the average session duration
+ */
 function CardDuration({ userId }) {
   const [sessionData, setSessionData] = useState([]);
 

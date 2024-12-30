@@ -3,6 +3,13 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { fetchUserMainData } from "../../../../services/api";
 
+/**
+ * CardScore component displays the user's score as a circular progress graph.
+ *
+ * @param {Object} props - The component props.
+ * @param {number} props.userId - The ID of the user to fetch the score for.
+ * @returns {JSX.Element} The rendered CardScore component.
+ */
 function CardScore({ userId }) {
   const [todayScore, setTodayScore] = useState(0);
 

@@ -28,6 +28,13 @@ const desiredOrder = [
   "Cardio",
 ];
 
+/**
+ * CardDetails component fetches and displays user performance data in a radar chart.
+ *
+ * @param {Object} props - The component props.
+ * @param {number} props.userId - The ID of the user whose performance data is to be fetched.
+ * @returns {JSX.Element} The rendered CardDetails component.
+ */
 function CardDetails({ userId }) {
   const [performanceData, setPerformanceData] = useState([]);
 

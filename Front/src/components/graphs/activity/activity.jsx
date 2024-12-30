@@ -13,6 +13,14 @@ import {
 } from "recharts";
 import { fetchUserActivity } from "../../../services/api";
 
+/**
+ * Component to display user's daily activity in a bar chart.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} props.userId - The ID of the user to fetch activity data for
+ * @returns {JSX.Element} A bar chart representing the user's daily activity
+ */
 function Activity({ userId }) {
   const [activityData, setActivityData] = useState(null);
 

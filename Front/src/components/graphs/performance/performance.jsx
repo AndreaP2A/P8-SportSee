@@ -7,6 +7,13 @@ import CardScore from "./cardScore/cardScore";
 import Activity from "../activity/activity";
 import { fetchUserMainData } from "../../../services/api";
 
+/**
+ * Performance component fetches and displays the performance data for a user.
+ *
+ * @param {Object} props - The component props.
+ * @param {number} props.userId - The ID of the user whose performance data is to be fetched.
+ * @returns {JSX.Element} The rendered component.
+ */
 function Performance({ userId }) {
   const [actualUserId, setActualUserId] = useState(null);
 
