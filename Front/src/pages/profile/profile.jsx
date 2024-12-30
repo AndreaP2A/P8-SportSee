@@ -28,6 +28,7 @@ function Profile() {
         setKeyData(data.keyData);
       } catch (error) {
         console.error("Error fetching user data:", error);
+        navigate("/error404");
       }
     };
 

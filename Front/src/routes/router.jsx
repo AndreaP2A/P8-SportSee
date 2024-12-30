@@ -15,7 +15,7 @@ function getStoredUserId() {
 
 function RedirectToProfile() {
   const storedUserId = getStoredUserId();
-  return <Navigate replace to={`/profile/${storedUserId}`} />;
+  return <Navigate replace to={`/user/${storedUserId}`} />;
 }
 
 function AppRouter() {
@@ -31,7 +31,7 @@ function AppRouter() {
         <Route path="/" element={<Navigate replace to="/home" />} />
         <Route path="/" element={<Layout />}>
           <Route path="/home" element={<Home />} />
-          <Route path="/profile/:userId" element={<Profile />} />
+          <Route path="/user/:userId" element={<Profile />} />
           <Route path="/settings" element={<RedirectToProfile />} />
           <Route path="/community" element={<RedirectToProfile />} />
           <Route path="*" element={<Error404 />} />
