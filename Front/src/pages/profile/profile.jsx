@@ -18,14 +18,12 @@ function Profile() {
   const [keyData, setKeyData] = useState({});
 
   useEffect(() => {
-    console.log("Profile userId:", userId);
     if (userId && location.pathname.includes("/profile")) {
       localStorage.setItem("lastUserId", userId);
     }
     const getUserData = async () => {
       try {
         const data = await fetchUserMainData(Number(userId), navigate);
-        console.log("Fetched user data:", data);
         setFirstName(data.userInfos.firstName);
         setKeyData(data.keyData);
       } catch (error) {

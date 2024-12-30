@@ -16,7 +16,7 @@ const backendFormatter = new BackendDataFormatter();
  * @param {function} navigate - The navigate function to redirect on error.
  * @returns {Promise<Object>} A promise that resolves to the formatted data.
  */
-const handleFetch = async (url, formatter, navigate) => {
+const handleFetch = async (url, formatter, navigate, userId) => {
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -26,7 +26,7 @@ const handleFetch = async (url, formatter, navigate) => {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-    return formatter(data);
+    return formatter(data, userId);
   } catch (error) {
     console.error("Error fetching data:", error);
     navigate("/error");
@@ -43,13 +43,10 @@ const handleFetch = async (url, formatter, navigate) => {
  */
 async function fetchUserMainData(userId, navigate) {
   const url = useMockData ? mockDataUrl : `${backendUrl}/user/${userId}`;
-  return handleFetch(
-    url,
-    useMockData
-      ? mockFormatter.formatUserMainData
-      : backendFormatter.formatUserMainData,
-    navigate
-  );
+  const formatter = useMockData
+    ? mockFormatter.formatUserMainData
+    : backendFormatter.formatUserMainData;
+  return handleFetch(url, formatter, navigate, userId);
 }
 
 /**
@@ -63,13 +60,10 @@ async function fetchUserActivity(userId, navigate) {
   const url = useMockData
     ? mockDataUrl
     : `${backendUrl}/user/${userId}/activity`;
-  return handleFetch(
-    url,
-    useMockData
-      ? mockFormatter.formatUserActivity
-      : backendFormatter.formatUserActivity,
-    navigate
-  );
+  const formatter = useMockData
+    ? mockFormatter.formatUserActivity
+    : backendFormatter.formatUserActivity;
+  return handleFetch(url, formatter, navigate, userId);
 }
 
 /**
@@ -83,13 +77,10 @@ async function fetchUserAverageSessions(userId, navigate) {
   const url = useMockData
     ? mockDataUrl
     : `${backendUrl}/user/${userId}/average-sessions`;
-  return handleFetch(
-    url,
-    useMockData
-      ? mockFormatter.formatUserAverageSessions
-      : backendFormatter.formatUserAverageSessions,
-    navigate
-  );
+  const formatter = useMockData
+    ? mockFormatter.formatUserAverageSessions
+    : backendFormatter.formatUserAverageSessions;
+  return handleFetch(url, formatter, navigate, userId);
 }
 
 /**
@@ -103,13 +94,10 @@ async function fetchUserPerformance(userId, navigate) {
   const url = useMockData
     ? mockDataUrl
     : `${backendUrl}/user/${userId}/performance`;
-  return handleFetch(
-    url,
-    useMockData
-      ? mockFormatter.formatUserPerformance
-      : backendFormatter.formatUserPerformance,
-    navigate
-  );
+  const formatter = useMockData
+    ? mockFormatter.formatUserPerformance
+    : backendFormatter.formatUserPerformance;
+  return handleFetch(url, formatter, navigate, userId);
 }
 
 export {

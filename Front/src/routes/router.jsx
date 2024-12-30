@@ -15,7 +15,6 @@ function getStoredUserId() {
 
 function RedirectToProfile() {
   const storedUserId = getStoredUserId();
-  console.log("Redirecting to profile of userId:", storedUserId);
   return <Navigate replace to={`/profile/${storedUserId}`} />;
 }
 
