@@ -1,2 +1,2 @@
-const useMockData = false; //Toggle ici pour switch en mock et backend / TEST
+const useMockData = false; //Toggle ici pour switch entre mock et backend
 export default useMockData;
