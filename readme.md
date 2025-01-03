@@ -23,10 +23,13 @@ Celui-ci m'a amené à travailler sur :
 
 ## Test du projet
 
-1. Clonez ce dépôt de code sur votre machine locale.
-2. La commande `yarn` dans le dossier Back vous permettra d'installer les dépendances nécessaires et `yarn dev` lancera la micro api
-3. La commande `npm install` dans le dossier Front vous permettra d'installer les dépendances nécessaires et `npm run dev` de lancer le serveur
-4. Une fois la micro api et le serveur lancés, rendez-vous sur http://localhost:5173/ !
+1. Cloner ce dépôt de code sur votre machine locale via la commande `git clone https://github.com/AndreaP2A/P9-SportSee`.
+2. Rendez-vous dans le dossier du backend via `cd Back`, installer nvm via `nvm install 12.18`, puis yarn via `yarn`.
+3. Lancer la commande `yarn dev`, après quelques instants, le message "Magic happens on port 8000" devrait s'afficher : la micro api bien lancée !
+4. Dans un second terminal (ou second VSCode), rendez-vous dans le dossier du backend via `cd Front`, installer nvm via `nvm install 22.2.0` puis npm via `npm install`.
+5. Enfin, lancer la commande `npm run dev` : après quelques instants, un message "➜ Local: http://localhost:5173/" devrait s'afficher avec le lien de l'application. La micro api et le serveur étants lancées, vous pourrez alors aller sur le lien donné pour afficher le projet dans votre navigateur.
+
+Pour tester les deux sources de données possibles : ouvrer le fichier Front/src/services/config.js. A la ligne 1, vous pouvez alors alterner entre la valeur booléene `true` pour utiliser les données mock et `false` pour utiliser le backend/l'api.
 
 ## Site en ligne
 
