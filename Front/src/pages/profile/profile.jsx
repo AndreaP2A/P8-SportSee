@@ -24,18 +24,6 @@ function Profile() {
   if (error) return <div>Error fetching user data</div>;
   if (!userData) return <div>Veuillez patienter...</div>;
 
-  if (
-    location.pathname.includes(`/user/${userId}/activity`) ||
-    location.pathname.includes(`/user/${userId}/average-sessions`) ||
-    location.pathname.includes(`/user/${userId}/performance`)
-  ) {
-    return (
-      <div>
-        <pre>{JSON.stringify(userData, null, 2)}</pre>
-      </div>
-    );
-  }
-
   const { userInfos, keyData } = userData;
 
   if (!userInfos || !keyData) return <div>Invalid user data</div>;
