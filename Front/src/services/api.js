@@ -20,16 +20,17 @@ const handleFetch = async (url, formatter, navigate, userId) => {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      if (response.status === 500 || response.status === 404) {
-        navigate("/error");
-      }
-      throw new Error("Network response was not ok");
+      const error = new Error("Network response was not ok");
+      error.status = response.status;
+      throw error;
     }
     const data = await response.json();
     return formatter(data, userId);
   } catch (error) {
     console.error("Error fetching data:", error);
-    navigate("/error");
+    navigate("/error", {
+      state: { errorType: error.status === 404 ? "404" : "500" },
+    });
     throw error;
   }
 };

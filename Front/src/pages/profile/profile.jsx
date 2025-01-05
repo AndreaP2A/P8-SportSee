@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import "./profile.scss";
 import { useParams } from "react-router-dom";
 import useFetchUserData from "../../hooks/useFetchUserData";
@@ -19,9 +20,14 @@ import lipidIcon from "../../assets/icon_lipides.png";
  */
 function Profile() {
   const { userId } = useParams();
+  const navigate = useNavigate();
   const { userData, error } = useFetchUserData(userId);
 
-  if (error) return <div>Error fetching user data</div>;
+  if (error) {
+    console.log("Error object:", error);
+    const errorType = error.status === 404 ? "404" : "500";
+    return navigate("/error", { state: { errorType } });
+  }
   if (!userData) return <div>Veuillez patienter...</div>;
 
   const { userInfos, keyData } = userData;

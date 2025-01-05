@@ -100,7 +100,6 @@ function CardDuration({ userId }) {
             fill="pink"
             textAnchor="middle"
             dominantBaseline="central"
-            style={{ fontSize: 16, fontWeight: "500" }}
           >
             Durée moyenne des sessions
           </text>

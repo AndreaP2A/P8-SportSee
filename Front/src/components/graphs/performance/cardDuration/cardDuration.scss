@@ -29,3 +29,25 @@
 .recharts-layer.recharts-cartesian-axis.recharts-xAxis.xAxis {
   z-index: 2;
 }
+
+.recharts-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1024px) {
+  .recharts-text {
+    font-size: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    display: inline-block;
+    max-width: 50px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .performance_cards_duration.recharts-text {
+    font-size: 8px;
+  }
+}
