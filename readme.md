@@ -39,4 +39,4 @@ A venir !
 
 andrea.porche2a@gmail.com
 
-Lien du repo: [https://github.com/AndreaP2A/P9-SportSee](https://github.com/AndreaP2A/P9-SportSee)
+Lien du repo: [https://github.com/AndreaP2A/P8-SportSee](https://github.com/AndreaP2A/P8-SportSee)
