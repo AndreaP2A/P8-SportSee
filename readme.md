@@ -41,9 +41,6 @@ Suivi en temps réel des macro-nutriments (Calories, Protéines, Glucides, Lipid
 
 ## 🚀 Installation et Utilisation
 
-<<<<<<< HEAD
-Lien du repo: [https://github.com/AndreaP2A/P8-SportSee](https://github.com/AndreaP2A/P8-SportSee)
-=======
 ### Prérequis
 *   [NodeJS](https://nodejs.org/) (Version 12.18+ pour le Backend)
 *   [Yarn](https://yarnpkg.com/) ou [NPM](https://www.npmjs.com/)
@@ -95,4 +92,3 @@ Ce projet constitue le **9ème projet pratique** du parcours **Développeur d'ap
 *   GitHub : [@AndreaP2A](https://github.com/AndreaP2A)
 *   LinkedIn : [Andrea Porche](https://www.linkedin.com/in/andrea-porche/)
 *   Email : andrea.porche2a@gmail.com
->>>>>>> 629dee6 (docs: refonte complète des README pour un aspect professionnel)
