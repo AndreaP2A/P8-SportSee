@@ -11,12 +11,11 @@ import carbohydrateIcon from "../../assets/icon_glucides.png";
 import lipidIcon from "../../assets/icon_lipides.png";
 
 /**
- * Profile component fetches and displays user data based on the userId from the URL.
- * It shows a loading message while fetching data and handles errors.
- * If the URL matches specific paths, it displays the raw user data.
- * Otherwise, it displays the user's profile information including performance and food KPIs.
+ * Le composant Profile récupère et affiche les données de l'utilisateur basées sur l'userId de l'URL.
+ * Il affiche un message de chargement pendant la récupération des données et gère les erreurs.
+ * Il affiche les informations du profil de l'utilisateur, y compris les performances et les indicateurs nutritionnels (KPI).
  *
- * @returns {JSX.Element} The rendered profile component.
+ * @returns {JSX.Element} Le composant de profil rendu.
  */
 function Profile() {
   const { userId } = useParams();
@@ -24,7 +23,6 @@ function Profile() {
   const { userData, error } = useFetchUserData(userId);
 
   if (error) {
-    console.log("Error object:", error);
     const errorType = error.status === 404 ? "404" : "500";
     return navigate("/error", { state: { errorType } });
   }

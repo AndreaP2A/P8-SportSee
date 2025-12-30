@@ -1,42 +1,98 @@
 <div align="center">
-    <img src="./Front/src/assets/logo.png" alt="Logo SportSee">
-    <h3 align="center">SportSee</h3>
-    <p align="center">SportSee est un site web qui met à disposition un tableau de bord d'analytics de coaching sportif.</p>
+    <img src="./Front/src/assets/logo.png" alt="Logo SportSee" width="150">
+    <h1>SportSee — Tableau de Bord d'Analytics Sportive</h1>
+    <p>
+        <img src="https://img.shields.io/badge/React-20232a?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
+        <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
+        <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" alt="Sass">
+        <img src="https://img.shields.io/badge/Recharts-222222?style=for-the-badge&logo=recharts&logoColor=white" alt="Recharts">
+        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+    </p>
 </div>
 
-## Contexte du projet
+SportSee est une application web de coaching sportif permettant aux utilisateurs de visualiser leurs performances quotidiennes via un tableau de bord analytique complet. Le projet met l'accent sur la visualisation de données complexes et la gestion flexible des sources d'information.
 
-SportSee est un projet fictif, constituant le 8ème projet pratique dans le cadre du cursus que je suis chez OpenClassrooms. <br />
-Celui-ci m'a amené à travailler sur :
+## 📌 Présentation du Projet
 
-- Le développement d'une page profil d'utilisateur avec React, avec récupération des données via une API.
-- L'intégration de graphiques avancés et de diagrammes pour présenter des données d'analyse sportive via Recharts.
+L'objectif de SportSee est de fournir une interface fluide et intuitive où les sportifs peuvent suivre leurs statistiques : calories brûlées, poids, durée des sessions, et types d'activités pratiquées. Le projet a été développé avec **React** et utilise la bibliothèque **Recharts** pour générer des graphiques interactifs et dynamiques.
 
-## Technologies utilisées
+Une attention particulière a été portée à la **normalisation des données** via un système de formatage (Pattern Factory/Formatter), permettant de basculer facilement entre des données locales (mocks) et une API réelle.
 
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
-![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+## 🎯 Objectifs techniques
 
-## Test du projet
+*   **Visualisation de données** : Intégration avancée de Recharts pour créer des graphiques de type barres, lignes, radar et jauges.
+*   **Architecture Modulaire** : Organisation rigoureuse du code en composants réutilisables, services et layouts.
+*   **Data Management** : Mise en place d'un service de récupération de données capable de gérer deux sources distinctes (API REST ou fichiers JSON locaux).
+*   **Performance & SEO** : Utilisation de Vite pour une compilation ultra-rapide et respect des bonnes pratiques HTML5/CSS3.
 
-1. Cloner ce dépôt de code sur votre machine locale via la commande `git clone https://github.com/AndreaP2A/P9-SportSee`.
-2. Rendez-vous dans le dossier du backend via `cd Back`, installer nvm via `nvm install 12.18`, puis yarn via `yarn`.
-3. Lancer la commande `yarn dev`, après quelques instants, le message "Magic happens on port 8000" devrait s'afficher : la micro api bien lancée !
-4. Dans un second terminal (ou second VSCode), rendez-vous dans le dossier du backend via `cd Front`, installer nvm via `nvm install 22.2.0` puis npm via `npm install`.
-5. Enfin, lancer la commande `npm run dev` : après quelques instants, un message "➜ Local: http://localhost:5173/" devrait s'afficher avec le lien de l'application. La micro api et le serveur étants lancées, vous pourrez alors aller sur le lien donné pour afficher le projet dans votre navigateur.
+## ✨ Fonctionnalités clés
 
-Pour tester les deux sources de données possibles : ouvrer le fichier Front/src/services/config.js. A la ligne 1, vous pouvez alors alterner entre la valeur booléene `true` pour utiliser les données mock et `false` pour utiliser le backend/l'api.
+📊 **Graphiques Interactifs**
+Visualisation de l'activité quotidienne (Poids/Calories), de la durée moyenne des sessions, et des performances par catégorie (Cardio, Energie, etc.).
 
-## Site en ligne
+⚡ **Double Source de Données**
+Système de switch permettant de choisir entre les données du backend ou des données simulées (Mocks) pour le développement.
 
-A venir !
+📱 **Design Responsive**
+Interface optimisée pour différents formats d'écran, garantissant une lisibilité maximale des statistiques.
 
-## Contact
+🔥 **Indicateurs de Santé**
+Suivi en temps réel des macro-nutriments (Calories, Protéines, Glucides, Lipides).
 
-andrea.porche2a@gmail.com
+## 🚀 Installation et Utilisation
 
+<<<<<<< HEAD
 Lien du repo: [https://github.com/AndreaP2A/P8-SportSee](https://github.com/AndreaP2A/P8-SportSee)
+=======
+### Prérequis
+*   [NodeJS](https://nodejs.org/) (Version 12.18+ pour le Backend)
+*   [Yarn](https://yarnpkg.com/) ou [NPM](https://www.npmjs.com/)
+
+### Étape 1 : Lancer le Backend (Micro API)
+Le backend fournit les données nécessaires à l'application.
+```bash
+cd Back
+# Installation des dépendances
+yarn # ou npm install
+# Lancement du serveur (port 8000 par défaut)
+yarn dev
+```
+
+### Étape 2 : Lancer le Frontend
+```bash
+cd Front
+# Installation des dépendances
+npm install
+# Lancement de l'application
+npm run dev
+```
+L'application sera accessible sur `http://localhost:5173`.
+
+> 💡 **Astuce** : Pour basculer entre l'API et les Mocks, changez la valeur dans `Front/src/services/config.js`.
+
+## 🛠️ Structure du Projet
+
+```text
+.
+├── Back/               # Micro API Node.js (Serveur de données)
+├── Front/              # Application React (Vite)
+│   ├── src/
+│   │   ├── components/ # Composants graphiques et UI
+│   │   ├── layouts/    # Structures de pages (Header, Nav, etc.)
+│   │   ├── pages/      # Pages principales (Profil, etc.)
+│   │   ├── services/   # Logique API et Formatage de données
+│   │   └── sass/       # Styles globaux et variables
+└── README.md           # Documentation principale
+```
+
+## 🎓 Contexte Pédagogique
+
+Ce projet constitue le **9ème projet pratique** du parcours **Développeur d'application JavaScript / React** chez OpenClassrooms. Il m'a permis de maîtriser l'intégration de bibliothèques tierces de visualisation de données et de renforcer mes compétences en architecture logicielle pour la gestion asynchrone des données.
+
+## 👨‍💻 Auteur
+**Andréa PORCHE**
+
+*   GitHub : [@AndreaP2A](https://github.com/AndreaP2A)
+*   LinkedIn : [Andrea Porche](https://www.linkedin.com/in/andrea-porche/)
+*   Email : andrea.porche2a@gmail.com
+>>>>>>> 629dee6 (docs: refonte complète des README pour un aspect professionnel)

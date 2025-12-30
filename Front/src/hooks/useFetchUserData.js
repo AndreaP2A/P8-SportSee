@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { fetchUserMainData } from "../services/api";
 
 /**
- * Custom hook to fetch user data based on the current URL path.
+ * Hook personnalisé pour récupérer les données utilisateur en fonction de l'ID fourni.
  *
- * @param {number} userId - The ID of the user whose data is to be fetched.
- * @returns {Object} An object containing userData and error.
- * @returns {Object|null} userData - The fetched user data or null if not yet fetched.
- * @returns {Object|null} error - The error object if an error occurred during fetching, otherwise null.
+ * @param {number} userId - L'ID de l'utilisateur dont les données doivent être récupérées.
+ * @returns {Object} Un objet contenant userData et error.
+ * @returns {Object|null} userData - Les données utilisateur récupérées ou null si pas encore récupérées.
+ * @returns {Object|null} error - L'objet d'erreur si une erreur survient, sinon null.
  */
 const useFetchUserData = (userId) => {
   const navigate = useNavigate();

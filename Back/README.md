@@ -1,64 +1,41 @@
-# SportSee
+<div align="center">
+    <h1>SportSee — Micro API Backend</h1>
+    <p>
+        <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js">
+        <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+        <img src="https://img.shields.io/badge/Yarn-2C8EBB?style=for-the-badge&logo=yarn&logoColor=white" alt="Yarn">
+    </p>
+</div>
 
-This repo contains all the source code to run the micro API for the sports analytics dashboard SportSee.
+## 📑 Description
+Ce dépôt contient le code source de la micro API utilisée par le tableau de bord SportSee. Il s'agit d'un serveur **Node.js** qui expose plusieurs points de terminaison pour récupérer les données sportives des utilisateurs.
 
-## 1. General information
+## 🚀 Installation & Lancement
 
-To start this project, you are free to use Docker or not. In this documentation, we will see several methods to launch the project easily.
+### Sans Docker
+1.  **Prérequis** : Node.js (v12.18+) et Yarn.
+2.  Installez les dépendances :
+    ```bash
+    yarn install
+    ```
+3.  Lancez le serveur :
+    ```bash
+    yarn dev
+    ```
+    Le serveur sera lancé sur le port **8000**.
 
-## 2. Project (**without Docker**)
+### Avec Docker
+*   Construire l'image : `docker image build -t micro-api .`
+*   Lancer le container : `docker container run --name micro-api -p 8000:3000 -dt micro-api yarn dev`
 
-### 2.1 Prerequisites
+## 📡 Endpoints (Points de terminaison)
+L'API expose les routes suivantes (utilisables avec `userId` 12 ou 18) :
 
-- [NodeJS (**version 12.18**)](https://nodejs.org/en/) or higher (tested up to Node 20.0) 
-- [Yarn](https://yarnpkg.com/)
+*   `GET /user/:userId` : Informations générales (Prénom, poids, calories du jour).
+*   `GET /user/:userId/activity` : Activité quotidienne (Poids et calories brûlées).
+*   `GET /user/:userId/average-sessions` : Durée moyenne des sessions par jour.
+*   `GET /user/:userId/performance` : Données de performance (Cardio, Energie, etc.).
 
-If you are working with several versions of NodeJS, we recommend you install [nvm](https://github.com/nvm-sh/nvm). This tool will allow you to easily manage your NodeJS versions.
-
-### 2.2 Launching the project
-
-- Fork the repository
-- Clone it on your computer.
-- The `yarn` command will allow you to install the dependencies.
-- The `yarn dev` command will allow you to run the micro API.
-
-
-## 3. Project (**with Docker**)
-
-### 2.1 Prerequisites
-
-- [Docker Desktop](https://www.docker.com/products/docker-desktop)
-
-### 2.2 Starting the project
-
-- The `docker image build --no-cache -t micro-api .` command will allow you to build your image.
-- The `docker container run --name micro-api -p 3000:3000 -dt micro-api yarn` command will allow you to create your Docker container and run your image on port 3000.
-- The `docker container stop micro-api` command will allow you to stop your micro-api.
-- The `docker container rm micro-api` command will allow you to delete your micro-api container.
-
-### 2.3 Vscode and container remotes
-
-Finally, if you have VsCode, you can easily launch your project in a docker environment.
-
-You will need the [Remote Development extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). Once you have this extension installed, just click on the `Reopen in Container` button.
-
-Once in the container, run the `yarn dev` command.
-
-## 4. Endpoints
-
-### 4.1 Possible endpoints
-
-This project includes four endpoints that you will be able to use: 
-
-- `http://localhost:3000/user/${userId}` - retrieves information from a user. This first endpoint includes the user id, user information (first name, last name and age), the current day's score (todayScore) and key data (calorie, macronutrient, etc.).
-- `http://localhost:3000/user/${userId}/activity` - retrieves a user's activity day by day with kilograms and calories.
-- `http://localhost:3000/user/${userId}/average-sessions` - retrieves the average sessions of a user per day. The week starts on Monday.
-- `http://localhost:3000/user/${userId}/performance` - retrieves a user's performance (energy, endurance, etc.).
-
-
-**Warning, currently only two users have been mocked. They have userId 12 and 18 respectively.**
-
-### 4.2 Examples of queries
-
-- `http://localhost:3000/user/12/performance` - Retrieves the performance of the user with id 12
-- `http://localhost:3000/user/18` - Retrieves user 18's main information.
+## 🧪 Exemples de requêtes
+*   `http://localhost:8000/user/12`
+*   `http://localhost:8000/user/18/performance`
